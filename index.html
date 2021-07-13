@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Salary Survey Embeds</title>
+  
+    <script src="https://pym.nprapps.org/pym.v1.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+    <style>
+        #main {
+            display: flex;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="observablehq-viewof-input-2fd26501"></div>
+        <div id="observablehq-main-2fd26501" style="width: 100%; height: 100%;"></div>  
+    </div>
+    
+    <div id="observablehq-css-2fd26501"></div>
+    <div id="observablehq-viewof-input-2fd26501"></div>
+    <div id="observablehq-css-2fd26501"></div>
+    <div id="observablehq-main-2fd26501"></div>
+    <div id="observablehq-datatable-2fd26501"></div>
+
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@jacoblagesse/public-media-salary-survey-interactive-database.js?v=3";
+    new Runtime().module(define, name => {
+      if (name === "viewof input") return new Inspector(document.querySelector("#observablehq-viewof-input-2fd26501"));
+      if (name === "css") return new Inspector(document.querySelector("#observablehq-css-2fd26501"));
+      if (name === "main") return new Inspector(document.querySelector("#observablehq-main-2fd26501"));
+      if (name === "datatable") return new Inspector(document.querySelector("#observablehq-datatable-2fd26501"));
+    });
+    </script>
+
+    
+    <script>
+//        d3.select('.field')
+//          .on('change', function() {
+//            var newData = eval(d3.select(this).property('value'));
+//            updateLegend(newData);
+//        });
+//        
+//        const formFilter = (data, fields) => {
+//          for (const key in fields) {
+//            data = data.filter(d => d[key] == fields[key]);
+//          }
+//          return data;
+//        }
+        
+        d3.csv("SalarySurveyDataCleaned.csv", function(data) {
+            console.log([data])
+        });
+    </script>
+    <script>var pymChild = new pym.Child({ polling: 500 });</script>
+</body>
+</html>
